@@ -8,8 +8,7 @@ const getBrowser = async () => {
     if (globalBrowser) {
       return globalBrowser;
     }
-    console.log("Creating new Broswer", process.env.AWS_EXECUTION_ENV, chrome.headless);
-
+    
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     globalBrowser = await  puppeteer.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
