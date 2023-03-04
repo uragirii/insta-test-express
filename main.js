@@ -42,29 +42,31 @@ http.createServer(async (req, res) => {
 
     const username = url.split("=").pop();
 
-    await page.goto(`https://instagram.com/${username}`, {
-      waitUntil: "networkidle0",
-    });
+    // await page.goto(`https://instagram.com/${username}`, {
+    //   waitUntil: "networkidle0",
+    // });
 
-    await page.waitForTimeout(5000)
+    // await page.waitForTimeout(5000)
+    await page.goto('https://bot.sannysoft.com')
+  await page.waitForTimeout(5000)
 
-    const imageUrl = await page.evaluate(() => {
-      let elements = document.getElementsByClassName("_aadp");
-      if (elements.length === 0) {
-        elements = document.getElementsByClassName("x6umtig");
-      }
-      const imageElement = elements[0];
-      console.log(imageElement);
-      return imageElement?.getAttribute("src");
-    });
+    // const imageUrl = await page.evaluate(() => {
+    //   let elements = document.getElementsByClassName("_aadp");
+    //   if (elements.length === 0) {
+    //     elements = document.getElementsByClassName("x6umtig");
+    //   }
+    //   const imageElement = elements[0];
+    //   console.log(imageElement);
+    //   return imageElement?.getAttribute("src");
+    // });
 
-    if(!imageUrl){
-      console.log(await page.content(), page.url())
-    }
+    // if(!imageUrl){
+    //   console.log(await page.content(), page.url())
+    // }
 
     const data = {
       username,
-      imageUrl
+      imageUrl : await page.screenshot({encoding:"base64", fullPage:true})
     }
 
     res.writeHead(200, {'Content-Type': 'application/json'});
