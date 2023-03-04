@@ -66,7 +66,7 @@ http.createServer(async (req, res) => {
 
     const data = {
       username,
-      imageUrl : await page.screenshot({encoding:"base64", fullPage:true})
+      imageUrl : 'data:image/png;base64,'+await page.screenshot({encoding:"base64", fullPage:true})
     }
 
     res.writeHead(200, {'Content-Type': 'application/json'});
