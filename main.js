@@ -54,7 +54,7 @@ http.createServer(async (req, res) => {
     });
 
     if(!imageUrl){
-      console.log(await page.content())
+      console.log(await page.content(), page.url())
     }
 
     const data = {
