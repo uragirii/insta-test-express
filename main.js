@@ -40,6 +40,8 @@ http.createServer(async (req, res) => {
     const browser = await getBrowser();
     const page = await browser.newPage();
 
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36')
+
     const username = url.split("=").pop();
 
     await page.goto(`https://instagram.com/${username}`, {
