@@ -46,6 +46,8 @@ http.createServer(async (req, res) => {
       waitUntil: "networkidle0",
     });
 
+    await page.waitForTimeout(5000)
+
     const imageUrl = await page.evaluate(() => {
       let elements = document.getElementsByClassName("_aadp");
       if (elements.length === 0) {
