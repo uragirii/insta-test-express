@@ -1,0 +1,12 @@
+{
+  "name": "insta-test-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "puppeteer": "^19.7.2"
+  }
+}
