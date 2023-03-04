@@ -8,7 +8,7 @@ const getBrowser = async () => {
     if (globalBrowser) {
       return globalBrowser;
     }
-    
+
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     globalBrowser = await  puppeteer.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -49,8 +49,13 @@ http.createServer(async (req, res) => {
         elements = document.getElementsByClassName("x6umtig");
       }
       const imageElement = elements[0];
+      console.log(imageElement);
       return imageElement?.getAttribute("src");
     });
+
+    if(!imageUrl){
+      console.log(await page.contents())
+    }
 
     const data = {
       username,
